@@ -11,7 +11,9 @@ class Solution:
                 i+=1
                 
         
-        return i == length
+        if len(check_stack) == 0:
+            return True
+        return False
             
                 
         
