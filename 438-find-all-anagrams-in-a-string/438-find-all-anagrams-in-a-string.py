@@ -3,31 +3,34 @@ class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         
     
-        anagrams = []
-        map = Counter(p)
-        distincts = len(map)
+        result = []
+        frequency = Counter(p)
+        length_of_dist = len(frequency)
 
-        i,j = 0,0
-        k = len(p)
+        left_window,right_window = 0,0
+        length_of_sub = len(p)
 
-        while(j < len(s)):
-            if s[j] in map:
-                map[s[j]] -= 1
-                if(map[s[j]] == 0): distincts -= 1
-            if(j - i + 1 < k): j += 1
+        while(right_window < len(s)):
+            if s[right_window] in frequency:
+                frequency[s[right_window]] -= 1
+                if(frequency[s[right_window]] == 0): length_of_dist -= 1
+            if(right_window - left_window + 1 < length_of_sub): 
+                right_window += 1
             else:
-                if(distincts == 0): anagrams.append(i)
+                if(length_of_dist == 0): 
+                    result.append(left_window)
 
                 
-                if s[i] in map: 
-                    map[s[i]] += 1
+                if s[left_window] in frequency: 
+                    frequency[s[left_window]] += 1
                     
-                    if(map[s[i]] == 1): distincts += 1
+                    if(frequency[s[left_window]] == 1): 
+                        length_of_dist += 1
     
-                i += 1
-                j += 1
+                left_window += 1
+                right_window += 1
 
-        return anagrams
+        return result
                 
             
         
