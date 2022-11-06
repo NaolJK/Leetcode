@@ -3,12 +3,25 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        counts = [0, 0, 0]
-        for num in nums:
-            counts[num] += 1
-        j = 0
-        for i in range(3):
-            while counts[i] > 0:
-                nums[j] = i
-                counts[i] -= 1
-                j += 1
+        low_pointer = middle_pointer = 0
+        high_pointer = len(nums) - 1
+        
+        while middle_pointer <= high_pointer:
+            if nums[middle_pointer] == 0:
+                nums[low_pointer], nums[middle_pointer] = nums[middle_pointer], nums[low_pointer]
+                low_pointer+=1
+                middle_pointer+=1
+            elif nums[middle_pointer] == 1:
+                middle_pointer+=1
+            
+            else:
+                nums[middle_pointer], nums[high_pointer] = nums[high_pointer], nums[middle_pointer]
+                high_pointer -=1
+            
+                
+        
+        
+        
+    
+            
+            
