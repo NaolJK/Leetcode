@@ -1,43 +1,23 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        # stack = list(strs[0])
-        strs = sorted(strs)
-        i,j = 0,0 
+        first = strs[0]
         
+        for word in strs:
+            if first > word:
+                first = word
+                
+        last = strs[0]
+        
+        for word in strs:
+            if last < word:
+                last = word
+        print(first, last)
         ans = ""
+        i, j = 0, 0
         if len(strs) == 1:
             return strs[0]
-        
-        
-        
-        while i<len(strs[0]) and j<len(strs[-1]) and strs[0][i] == strs[-1][j]:
-            ans += strs[0][i]
+        while i<len(first) and j<len(last) and first[i] == last[j]:
+            ans += first[i]
             i+=1
             j+=1
-            
-        return (ans)
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-
-                
-        # print(prefix)
-
-                    
-
-        
+        return ans
