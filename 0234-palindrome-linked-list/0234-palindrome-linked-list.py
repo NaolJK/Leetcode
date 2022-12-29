@@ -8,15 +8,15 @@ class Solution:
         if not head.next:
             return True
         
-        if not head.next.next:
-            return head.val == head.next.val
-        
         fast = head 
         slow = head
         
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
+        
+        if not slow.next:
+            return head.val == slow.val
             
         middle = slow
      
@@ -44,29 +44,5 @@ class Solution:
             
             return checkPalindrome(start.next,end.next)
         return checkPalindrome(start,end)
-        
-            
-            
-        
-        
-#         curr = head 
-#         stack = []
-        
-#         while curr != None:
-#             stack.append(curr.val)
-#             curr = curr.next
-        
-#         def checkPalindrome(stack):
-#             if len(stack) == 0 or len(stack) == 1:
-#                 return True
-            
-#             left = stack.pop(0)
-#             right = stack.pop()
-            
-#             if left != right:
-#                 return False
-            
-#             return checkPalindrome(stack)
-        
-#         return checkPalindrome(stack)
+
         
