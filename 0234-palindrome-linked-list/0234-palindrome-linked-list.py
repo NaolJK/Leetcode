@@ -34,14 +34,12 @@ class Solution:
         start = head 
         end = next_pointer 
         
-        
-        def checkPalindrome(start,end):
-            if not (start and end):
-                return True
-            if start and start.val != end.val:
+        while start and end:
+            if start.val != end.val:
                 return False
-            
-            return checkPalindrome(start.next,end.next)
-        return checkPalindrome(start,end)
+            start = start.next
+            end = end.next 
+        
+        return True
 
         
