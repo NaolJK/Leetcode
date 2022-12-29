@@ -19,7 +19,6 @@ class Solution:
             return head.val == slow.val
             
         middle = slow
-     
         next_pointer = slow.next
         temp = slow.next.next
         
@@ -34,7 +33,7 @@ class Solution:
         middle.next = None
         start = head 
         end = next_pointer 
-        print(end.next.val)
+        
         
         def checkPalindrome(start,end):
             if not (start and end):
