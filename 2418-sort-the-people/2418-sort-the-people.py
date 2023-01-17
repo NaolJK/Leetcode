@@ -1,7 +1,6 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         gap = len(names) // 2
-        
         while gap > 0:
             j = gap
             while j < len(names):
