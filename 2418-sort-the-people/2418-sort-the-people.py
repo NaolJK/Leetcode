@@ -12,8 +12,7 @@ class Solution:
                         heights[i+gap], heights[i] = heights[i],heights[i+gap]
                         names[i+gap], names[i] = names[i], names[i+gap]
                     i-=gap
-                j+=1
-            
+                j+=1 
             gap = gap//2
         return names
                     
