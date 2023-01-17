@@ -3,7 +3,7 @@ class Solution:
         for i in range(len(heights)):
             minimum = i
             
-            for j in range(i,len(heights)):
+            for j in range(i+1,len(heights)):
                 if heights[j] > heights[minimum]:
                     minimum = j
                 
