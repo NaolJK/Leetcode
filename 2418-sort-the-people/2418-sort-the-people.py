@@ -1,9 +1,10 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        length = len(names)
         gap = len(names) // 2
         while gap > 0:
             j = gap
-            while j < len(names):
+            while j < length:
                 i = j - gap
                 while i >= 0:
                     if heights[i+gap] < heights[i]:
