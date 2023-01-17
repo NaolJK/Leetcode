@@ -1,16 +1,22 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        for i in range(len(heights)):
-            minimum = i
-            
-            for j in range(i+1,len(heights)):
-                if heights[j] > heights[minimum]:
-                    minimum = j
-                
-            heights[i],heights[minimum] = heights[minimum],heights[i]
-            names[i],names[minimum] = names[minimum],names[i]
-            
-        return names
+        i = 1
+        length = len(names)
         
+        while i < length:
+            
+            j = i
+            minimum_name = names[i]
+            minimum_height = heights[i]
+            while minimum_height > heights[j-1] and j>0:
+                heights[j] = heights[j-1]
+                names[j] = names[j-1]
+                j-=1
+            heights[j] = minimum_height
+            names[j] = minimum_name
+            i+=1
+        return names
+            
+            
                     
         
