@@ -1,7 +1,6 @@
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
-        #1 2 3 4   5
-        right = 46400
+        right = int(c**0.5)
         left = 0
         
         while left <= right:
