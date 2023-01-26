@@ -1,9 +1,19 @@
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        result = dict(Counter(nums))
-        count=0
-        print(result)
-        for i in result:
-            if((k - i in result) and (result[k-i] > 0)):
-                count += min(result[i], result[k-i])
-        return count//2        
+        nums.sort()
+        left , right = 0 , len(nums)-1
+        op = 0
+        while left < right:
+            tot = nums[left] + nums[right]
+            if tot == k:
+                left+=1
+                right-=1
+                op+=1
+            elif tot > k:
+                right-=1
+            else:
+                left+=1
+        return op
+                
+                
+        
