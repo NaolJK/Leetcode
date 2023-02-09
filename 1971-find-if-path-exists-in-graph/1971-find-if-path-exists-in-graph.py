@@ -6,12 +6,12 @@ class Solution:
             graph[a].append(b)
             graph[b].append(a)
             
-        queue = deque()
-        queue.append(source)
+        stack = []
+        stack.append(source)
         seen = set([source])
         
-        while queue:
-            cur = queue.popleft()
+        while stack:
+            cur = stack.pop()
             
             if cur == destination:
                 return True
@@ -19,6 +19,6 @@ class Solution:
             for next_node in graph[cur]:
                 if next_node not in seen:
                     seen.add(next_node)
-                    queue.append(next_node)
+                    stack.append(next_node)
                     
         return False
