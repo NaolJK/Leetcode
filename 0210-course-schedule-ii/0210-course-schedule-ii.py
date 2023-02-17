@@ -13,14 +13,11 @@ class Solution:
             degree[courses[0]]+=1
         
         queue = deque(i for i in range(numCourses) if degree[i] ==0)
-        # print(queue)
         while queue:
             course = queue.popleft()
             self.count+=1
-            # print(course)
             tracker.append(course)
             for neighbour in graph[course]:
-                # print(neighbour)
                 if neighbour in visited:
                     self.cycle = True
                 else:
