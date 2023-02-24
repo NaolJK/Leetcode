@@ -8,7 +8,6 @@ class Solution:
                 
                 operation = f"{n2} {expression} {n1}"
                 result = eval(operation)
-                # print(operation,result)
                 stack.append(str(int(result)))
             else:
                 stack.append(expression)
