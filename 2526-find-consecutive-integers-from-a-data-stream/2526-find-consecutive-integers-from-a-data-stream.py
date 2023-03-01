@@ -1,7 +1,6 @@
 class DataStream:
     
     def __init__(self, value: int, k: int):
-        self.data = []
         self.key = k
         self.val = value
         self.count = 0
@@ -11,9 +10,7 @@ class DataStream:
             self.count+=1
         else:
             self.count = 0
-            
-        self.data.append(num)
-        
+
         if self.count >= self.key:
             return True
         return False
