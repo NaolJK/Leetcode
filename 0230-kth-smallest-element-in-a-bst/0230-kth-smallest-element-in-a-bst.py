@@ -8,17 +8,31 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         self.k, self.ans = k, 0
         
-        def Traversal(node):
-            if not node:
-                return 
-            left = Traversal(node.left)
-            if self.k:
-                self.ans = node.val
-                self.k-=1
-            right = Traversal(node.right)
+        def Traversal(node,count):
             
-        Traversal(root)
-        return self.ans
+            if not node:
+                return [0,-1]
+            # if count = k:
+                # return [count,node.val]
+            
+            left, ans = Traversal(node.left,count)
+            
+            if left+1+count==k:
+                ans = node.val
+            right = 0
+           
+            if ans==-1:
+                right, ans = Traversal(node.right,count+left+1)
+            
+            
+            # print(count,node.val,ans)
+            return [left+right+1, ans]
+                
+            
+            
+            
+        a,b = Traversal(root,0)
+        return b
         
             
             
