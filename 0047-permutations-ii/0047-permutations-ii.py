@@ -2,10 +2,8 @@ class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         ans = []
         nums.sort()
-        visited = set()
         def permutation(i):
             if i == len(nums):
-                # print(nums, i)
                 ans.append(tuple(nums[::]))
                 return
             
