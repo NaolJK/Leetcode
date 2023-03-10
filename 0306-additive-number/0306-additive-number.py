@@ -7,9 +7,6 @@ class Solution:
             if i >= len(num) and len(candidate) > 2:
                 return True
             
-            # if prev_sum == int(candidate[-1]):
-            #     return True
-            
             for j in range(i,len(num)):
                 
                 current_num = num[i:j+1]
