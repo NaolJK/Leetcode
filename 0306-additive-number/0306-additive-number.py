@@ -19,7 +19,6 @@ class Solution:
                 if len(candidate) < 2 or (candidate[-1] + candidate[-2]) == int(current_num):
                     candidate.append(int(current_num))
                     ans = backtrack(j+1,candidate)
-                    # print(candidate,ans)
                     if ans:
                         return True
                     candidate.pop()
