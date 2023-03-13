@@ -10,8 +10,8 @@ class Solution:
         def traverse(node):
             if not node:
                 return [0 ,0, 0]
+            
             if not node.right and not node.left:
-                # print(node.val)
                 return [1, 1, node.val]
             
             l_count,l_c,left = traverse(node.left)
@@ -20,13 +20,11 @@ class Solution:
             tot_count = l_count + r_count + 1
             summation = left + right + node.val
             average = (summation)//(tot_count)
-            
-            # print(right,left,average,node.val,tot_count)
-            
+            ans = l_c+r_c
             if (average) == node.val:
-               
-                return [tot_count,l_c+r_c+1,summation]
-            return [tot_count, l_c+r_c , summation]
+                ans+=1
+                
+            return [tot_count, ans, summation]
         
         return (traverse(root)[1])
             
