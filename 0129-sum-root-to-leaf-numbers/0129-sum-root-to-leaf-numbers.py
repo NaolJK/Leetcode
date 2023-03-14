@@ -6,19 +6,21 @@
 #         self.right = right
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-        ans = []
+        ans = 0
+        
         def traverse(node, string):
+            nonlocal ans 
             if not node:
                 return
             if not node.left and not node.right:
-                ans.append(int(string+str(node.val)))
+                ans+=(int(string+str(node.val)))
                 return 
             
             traverse(node.left, string+ str(node.val))
             traverse(node.right, string+ str(node.val))
         traverse(root,"")
         
-        return sum(ans)
+        return (ans)
             
             
             
