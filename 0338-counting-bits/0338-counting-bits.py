@@ -1,7 +1,20 @@
 class Solution:
     def countBits(self, n: int) -> List[int]:
-        ans = []
-        for i in range(n+1):
-            res = bin(i)[2:]
-            ans.append(res.count("1"))
-        return ans
+        ans = [0]
+        temp = dict()
+        
+        def dp(i):
+            if i == 0:
+                return 0
+            if i in temp:
+                return temp[i]
+            res = dp(i//2)
+            dp(i - 1)
+            if i & 1:
+                res+=1
+            temp[i] = res
+            ans.append(res)
+            return res
+        dp(n)
+        return (ans)
+            
