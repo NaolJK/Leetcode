@@ -1,29 +1,11 @@
 class Solution:
     def findSmallestSetOfVertices(self, n: int, edges: List[List[int]]) -> List[int]:
+        total_nodes = set(i for i in range(n))
         
-        graph = defaultdict(list)
-        visited = set()
-        
-        
-        for source, destination in edges:
-            graph[source].append(destination)
-            graph[destination].append(source)
-            visited.add(destination)
-            
-            
-        ans = []
-        queue = deque([edges[0][0]])
-        seen = set()
-        seen.add(edges[0][0])
-      
-        while queue:
-            node = queue.popleft()
-            if node not in visited:
-                ans.append(node)
+        for s, d in edges:
+            if d in total_nodes:
+                total_nodes.remove(d)
                 
-            for vertex in graph[node]:
-                if vertex not in seen:
-                    queue.append(vertex)
-                    seen.add(vertex)
-        return ans
+        return list(total_nodes)
+            
                     
