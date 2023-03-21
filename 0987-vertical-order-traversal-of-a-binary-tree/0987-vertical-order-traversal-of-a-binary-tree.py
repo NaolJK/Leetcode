@@ -11,6 +11,7 @@ class Solution:
         ans = defaultdict(list)
         row = 0
         queue = deque([(root,0,row)])
+        
         while queue:
             node, level,row = queue.popleft()
             
@@ -21,6 +22,7 @@ class Solution:
             if node.right:
                 queue.append((node.right, level+1, row+1))
         res = []
+        
         ans = (sorted(ans.items()))
         for key, val in ans:
             r = [value for i,value in sorted(val)]
