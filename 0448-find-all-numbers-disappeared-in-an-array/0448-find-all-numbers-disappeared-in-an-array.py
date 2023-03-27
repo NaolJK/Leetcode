@@ -5,8 +5,8 @@ class Solution:
         
         i = 0
         while i < length:
-            num_at_i = nums[(nums[i]%length)-1]
-            swap_idx = (nums[i]%length)-1
+            num_at_i = nums[(nums[i])-1]
+            swap_idx = (nums[i])-1
             if num_at_i == nums[i] or i + 1 == nums[i]:
                 i+=1
             else:
