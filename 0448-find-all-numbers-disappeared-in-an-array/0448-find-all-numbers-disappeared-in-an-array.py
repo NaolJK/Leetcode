@@ -13,6 +13,7 @@ class Solution:
             else:
                 nums[i], nums[swap_idx] = nums[swap_idx],nums[i]
         i = 0
+        
         while i < length:
             if i+1 != nums[i]:
                 ans.append(i+1)
