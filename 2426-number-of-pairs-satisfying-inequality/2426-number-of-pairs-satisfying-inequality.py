@@ -34,18 +34,19 @@ class Solution:
                     p1-=1
                     if p1 >= 0:
                         result+=(len(right_arr) - p2 - 1)
-                    
+            
+            
             p1-=1       
             while p1 >= 0:
                 result+=(len(right_arr) - p2 - 1)
                 p1-=1
-                # print("here", (len(right_arr) - p2) - 1)
-                
-            # print(result, left_arr , right_arr)
-                
+            
+            
             self.count+=result
             
+            
             l, r, merged = 0 , 0, []
+            
             while l < len(left_arr) and r < len(right_arr):
                 if left_arr[l] >= right_arr[r]:
                     merged.append(right_arr[r])
@@ -58,9 +59,11 @@ class Solution:
                 merged.append(left_arr[l])
                 l+=1
             
+            
             while r < len(right_arr):
                 merged.append(right_arr[r])
                 r+=1
+            
             
             return merged
         
