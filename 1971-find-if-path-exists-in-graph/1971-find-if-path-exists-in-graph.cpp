@@ -8,21 +8,25 @@ public:
             graph[e[1]].push_back(e[0]);
         }
         
-        deque<int> Q;
-        // vector<bool> visited(n + 1);
-        unordered_set<int> visited;
-        Q.push_back(source);
-        visited.insert(source);
+        queue<int> Q;
+        vector<bool> visited(n + 1);
+        // unordered_set<int> visited;
+        Q.push(source);
+        visited[source] = true;
+        // visited.insert(source);
         while (!Q.empty()) {
             int node = Q.front();
-            Q.pop_front();
+            Q.pop();
             if (node == destination)
                 return true;
             for (auto u: graph[node]) {
-                if (visited.count(u))
+                if (visited[u])
                     continue;
-                Q.push_back(u);
-                visited.insert(u);
+                // if (visited.count(u))
+                    // continue;
+                Q.push(u);
+                visited[u] = true;
+                // visited.insert(u);
             }
         }
         return false;
