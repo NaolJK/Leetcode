@@ -22,18 +22,18 @@ public:
         
         
         int min_gap = right;
-        vector<int> ans;
+        int n1 = -1; 
+        int n2 = -1;
         for (int i=1; i < prime_n.size(); ++i){ 
             if(prime_n[i] - prime_n[i-1] < min_gap){
-                vector <int> n{prime_n[i-1] , prime_n[i]};
-                ans = n;
+                n1 = prime_n[i-1];
+                n2 = prime_n[i];
                 min_gap = prime_n[i] - prime_n[i-1];
             }
         }
-        if(!ans.size()){
-            vector <int> n{-1,-1};
-            ans = n;
-        }
+        
+        vector <int> ans{n1,n2};
+    
         return ans;
     }
 };
