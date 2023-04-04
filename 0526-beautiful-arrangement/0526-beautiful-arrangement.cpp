@@ -10,7 +10,6 @@ public:
 public:
     void backtrack(int index, int n){
         if(index > n){
-            // cout << index << endl;
             ++ans;
             return;
         }
