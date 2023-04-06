@@ -5,14 +5,16 @@ public:
         int length = ceil(sqrt(right));
         primes[0] = false;
         primes[1] = false;
-        int j =0;
+        long int j =0;
         for (int i =2; i <= length; ++i){
-            j = i+i;
+            j = i*i;
+            if( j <= right && !primes[j]) continue;
             while (j <= right){
                 primes[j] = false;
                 j+=i; 
             }
         }
+        
         vector<int> prime_n;
         for(int i=left; i< primes.size(); ++i){
             if(primes[i] == true){
