@@ -26,33 +26,26 @@ public:
             }
         }
         
+        
         int k=0;
-        // for (auto v : graph){
-        //     cout << "P" << k << endl;
-        //     for(int i =0; i< v.size(); ++i){
-        //         cout << v[i] << " ";
-        //     }
-        //     cout << endl;
-        //     ++k;
-        // }
+     
+        
         function <int(int, int)> bfs;
         bfs = [&] (int source, int len){
-            queue <pair<int, int>> q;
+            queue <int> q;
             vector <bool> seen(len, false);
-            q.push({source, 1});
+            q.push(source);
             seen[source] = true;
             int count = 1;
             
             while(!q.empty()){
-                int node = q.front().first;
-                int level = q.front().second;
-                // count = level;
+                int node = q.front();
                 q.pop();
                 
                 for(auto vertex : graph[node]){
                     if (seen[vertex]) continue;
                     ++count;
-                    q.push({vertex,level+1});
+                    q.push(vertex);
                     seen[vertex] = true;
                 }
                 
