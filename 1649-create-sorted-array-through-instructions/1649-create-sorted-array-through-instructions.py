@@ -11,7 +11,8 @@ class Solution:
         for num in instructions:
             result += min(container.bisect_left(num), len(container) - container.bisect_right(num))
             container.add(num)
+            result = result % mod
             
-        return result % mod
+        return result 
             
         
