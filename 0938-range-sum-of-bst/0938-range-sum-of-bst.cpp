@@ -20,8 +20,10 @@ public:
             
             if(node->val >= low && node->val <= high) ans+=node->val;
             
-            dfs(node->left);
-            dfs(node->right);
+            if(node->val >= low) dfs(node->left );
+            
+            
+            if(node->val <= high) dfs(node->right);
         };
         
         dfs(root);
