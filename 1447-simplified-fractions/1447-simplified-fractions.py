@@ -10,9 +10,7 @@ class Solution:
 
                 if(gcd(i, j) == 1):
                     ans.append(f"{i}/{j}")
-                else:
-                    if i == 1:
-                        ans.append(f"{i}/{j}")
+
                 
         return ans
                 
