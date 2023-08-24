@@ -10,10 +10,6 @@ class Solution:
             count[s[right]]+=1
             
             while left <= right and (count['a'] and  count['b'] and count['c']):
-                # print("here")
-                
-                # print(cnt)
-                # print(s[left:right])
                 count[s[left]] -= 1
                 left+=1
                 
