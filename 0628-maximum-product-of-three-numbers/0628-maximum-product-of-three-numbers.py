@@ -30,7 +30,7 @@ class Solution:
             elif num < n2:
                 n2 = num
                 
-        # print(p1, p2, p3)
+
         mx1 = p1 * p2 * p3
         mx2 = n1 * n2 * p1
        
