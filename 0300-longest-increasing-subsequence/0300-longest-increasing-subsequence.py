@@ -10,8 +10,10 @@ class Solution:
             for j in range(i):
                 
                 if nums[i] > nums[j]:
-                    
+                    # print("j" , nums[j],"i",nums[i], end = " ")
+                    # print()
                     dp[i] = max(dp[i], 1 + dp[j])
+            # print()
         
         # print(dp)
         
