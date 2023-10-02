@@ -11,13 +11,11 @@ public:
             }
             
             if(right - left > 2){
-                // int idx = int(colors[left]) - int('A');
-                // cout << idx;
                 cnt[int(colors[left]) - int('A')] += (right - left - 2);
             }
         }
         
         
-        return true ? cnt[0] > cnt[1] : false;
+        return cnt[0] - cnt[1] > 0;
     }
 };
