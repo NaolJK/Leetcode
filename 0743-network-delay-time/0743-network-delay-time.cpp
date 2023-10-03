@@ -51,9 +51,6 @@ public:
             }
         }
         
-        for(auto el : distance){
-            cout << el << " ";
-        }
         if(find(distance.begin(), distance.end(), INT_MAX) != distance.end()) return -1;
         
         return *max_element(distance.begin(), distance.end());
