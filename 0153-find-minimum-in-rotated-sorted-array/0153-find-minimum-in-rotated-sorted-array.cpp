@@ -17,7 +17,6 @@ public:
             cout << mid << " " << right << endl;
         }
         
-        // cout << left << " " << right << endl;
         return nums[left];
     }
 };
