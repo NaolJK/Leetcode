@@ -14,6 +14,8 @@ class Solution:
         
         pow = [0] * max(sz_hay, sz_nee)
         
+        
+        
         sz_pow = len(pow)
 
         pow[0] = 1
@@ -21,18 +23,22 @@ class Solution:
         for i in range(1,sz_pow):
             
             pow[i] = (pow[i-1] * p) % m
+            
+        # print(pow)
         
         hash = [0] * (sz_hay+1)
 
         for i in range(sz_hay):
             
             hash[i+1] = (hash[i] + (ord(haystack[i]) - ascii_a + 1) * pow[i]) % m
+            
         
         hash_needle = 0
 
         for i in range(sz_nee):
             
             hash_needle = (hash_needle + (ord(needle[i]) - ascii_a + 1) * pow[i]) % m
+            # print(hash_needle)
         
         stat = -1
 
@@ -43,6 +49,7 @@ class Solution:
             if (hash_needle * pow[i]) % m == cur_hash:
                 
                 stat = i
+                
                 break
 
         return stat
