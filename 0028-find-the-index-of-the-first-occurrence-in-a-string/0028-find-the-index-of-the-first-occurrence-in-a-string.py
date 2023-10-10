@@ -3,9 +3,10 @@ class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         
         sz_hay = len(haystack)
+        
         sz_nee = len(needle)
 
-        p = 31
+        p = 26
         
         m = 10 ** 9 + 9
         
@@ -24,6 +25,7 @@ class Solution:
         hash = [0] * (sz_hay+1)
 
         for i in range(sz_hay):
+            
             hash[i+1] = (hash[i] + (ord(haystack[i]) - ascii_a + 1) * pow[i]) % m
         
         hash_needle = 0
