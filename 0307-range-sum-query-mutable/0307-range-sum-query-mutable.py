@@ -1,55 +1,40 @@
 class NumArray:
-    
-    def RSB(self, i):
-        return i & -i
-    
 
     def __init__(self, nums: List[int]):
+        self.n = len(nums)
+        self.nums = nums
         
-        self.length = len(nums) + 1
-        self.nums = [0, *nums]
-        self.tree = [0]*self.length
+        self.tree = [0]*(self. n + 1)
         
-        for i in range(1, self.length):
-            self.tree[i] = self.nums[i]
+        for i, num in enumerate(nums):
+            self.updateTree(i+1, num)
         
-        for child in range(1, self.length):
-            parent = child + self.RSB(child)
-            
-            if parent < self.length:
-                self.tree[parent] += self.tree[child]
+    
+    def updateTree(self, i , val):
+        while i <= self.n:
+            self.tree[i]+=val
+            i+=(i & -i)
         
+    def getSum(self, i):
+        ans = 0
+        
+        while i > 0:
+            ans += self.tree[i]
+            i -= (i & -i)
+        return ans
 
     def update(self, index: int, val: int) -> None:
         
-        index += 1
-        add = val - self.nums[index]
+        diff = val - self.nums[index]
         
         self.nums[index] = val
         
-        i = index
-        
-        while i < self.length:
-            self.tree[i]+=add
-            i += self.RSB(i)
-        
-        
-    def prefix(self, i):
-        ans = 0
-        while i != 0:
-            # print(i, self.tree)
-            ans += self.tree[i]
-            i-=self.RSB(i)
-        
-        return ans
-        
+        self.updateTree(index + 1, diff)
         
 
     def sumRange(self, left: int, right: int) -> int:
         
-        return self.prefix(right + 1) - self.prefix(left)
-        
-        
+        return self.getSum(right+1) - self.getSum(left)
         
 
 
